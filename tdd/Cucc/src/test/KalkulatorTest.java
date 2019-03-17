@@ -43,7 +43,7 @@ class KalkulatorTest {
 		Sebesseg theirship_s = new Sebesseg(60.0, "km/h");
 		Pozicio theirship_p = new Pozicio(0, 0);
 		Hajo theirship = new Hajo(theirship_t, theirship_h, theirship_s, theirship_p);
-		assertEquals(false, k.are_we_gonnaCrashTo(ourship, theirship));
+		assertEquals(1, k.are_we_gonnaCrashTo(ourship, theirship));
 	}
 	
 	
@@ -85,6 +85,20 @@ class KalkulatorTest {
 		Pozicio p2 = new Pozicio(2, 8);
 		boolean ker = k.keresztezikEgymast(new Hajo(t, h, s, p), new Hajo(t2, h2, s2, p2));
 		assertTrue(ker);
+	}
+	
+	@Test
+	void testHolKeresztezikEgymast() throws Exception {
+		Tomeg t = new Tomeg(2000, "kg");
+		Tomeg t2 = new Tomeg(2000, "kg");
+		Hossz h = new Hossz(500, "m");
+		Hossz h2 = new Hossz(500, "m");
+		Sebesseg s = new Sebesseg(50.0, "km/h");
+		Sebesseg s2 = new Sebesseg(50.0, "km/h");
+		Pozicio p = new Pozicio(5, 5);
+		Pozicio p2 = new Pozicio(0, 13);
+		Pozicio kozosPont = k.getMetszesPont(new Hajo(t, h, s, p), new Hajo(t2, h2, s2, p2));
+		assertTrue(kozosPont.getX() == 0 && kozosPont.getY() == 4);
 	}
 
 }

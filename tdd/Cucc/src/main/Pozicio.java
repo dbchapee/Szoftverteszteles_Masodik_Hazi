@@ -3,15 +3,7 @@ package main;
 public class Pozicio {
 	private int x;
 	private int y;
-
-	public int getIrany() {
-	    int angle = (int) Math.toDegrees(Math.atan2(0 - y, 0 - x));
-	    if(angle < 0){
-	        angle += 360;
-	    }
-	    return angle;
-	}
-
+	
 	public Pozicio(int x, int y) throws InvalidUnitException {
 		super();
 		this.x = x;
@@ -19,6 +11,14 @@ public class Pozicio {
 		if(getIrany() > 360 || getIrany() < 0) {
 			throw new InvalidUnitException();
 		}
+	}
+
+	public int getIrany() {
+	    int angle = (int) Math.toDegrees(Math.atan2(0 - y, 0 - x));
+	    if(angle < 0){
+	        angle += 360;
+	    }
+	    return angle;
 	}
 
 	public int getX() {

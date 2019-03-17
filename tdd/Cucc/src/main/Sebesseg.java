@@ -14,5 +14,9 @@ public class Sebesseg {
 			throw new InvalidUnitException();
 		}
 	}
+	
+	public double getSebesseg() {
+		return this.sebesseg;
+	}
 
 }

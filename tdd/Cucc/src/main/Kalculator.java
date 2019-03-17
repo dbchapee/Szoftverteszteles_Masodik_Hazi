@@ -2,8 +2,6 @@ package main;
 
 public class Kalculator {
 
-	//gulyas_g
-	//sajnos tov�bbra sem �rtem, hogy szimpl�n x, y-bol hogy van meg egy "relativ pozicio", de az�rt sz�molok valamit :D
 	//return 1: nem kell csinalni semmit
 	//return 2: lassitani kell
 	//return 3: elsobbsegunk van
@@ -24,6 +22,16 @@ public class Kalculator {
 			return false;
 		}
 		else return true;
+	}
+	
+	public Pozicio getMetszesPont(Hajo hajo1, Hajo hajo2) throws Exception {
+		double vx = hajo2.getSpeed().getSebesseg() * Math.cos((double) 90 - hajo1.getIrany());
+		double vy = hajo2.getSpeed().getSebesseg() * Math.sin((double) 90 - hajo1.getIrany());
+		double dx = hajo1.getPozicio().getX();
+		double dy = hajo1.getPozicio().getY();
+		double mikorKeresztezi = -(dx / vx);
+		int holKereszteziY = (int) (dy + vy * mikorKeresztezi);
+		return new Pozicio(0, holKereszteziY);
 	}
 
 }
