@@ -44,7 +44,7 @@ public class Kalculator {
 	
 
 	//Ferenczi Kristóf /ELNXML
-	public boolean Crashing(Hajo ourship, Hajo othership)
+	public static boolean Crashing(Hajo ourship, Hajo othership)
 	{
 		
 		double vx = othership.getSpeed().getSebesseg() * Math.cos((double) 90 - ourship.getIrany());
