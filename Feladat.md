@@ -2,9 +2,10 @@
 
 ## Feladat
 
-Hajókra tervezünk ütközéselkerülő rendszert. A rendszer alapja, hogy a hajó navigációs radarja érzékeli a "másik hajó" relatív helyzetét, vagyis az x,y
-koordinátáit, ahol az y tengely a hajó haladási irányával párhuzamos (a haladási irány felé pozitív), az x tengely pedig arra merőleges (haladási iránytól jobbra pozitív), és a másik hajó relatív haladási irányát fokban
-megadva 
+Hajókra tervezünk ütközéselkerülő rendszert. 
+A rendszer alapja, hogy a hajó navigációs radarja érzékeli a "másik hajó" relatív helyzetét, 
+vagyis az x,y koordinátáit, ahol az y tengely a hajó haladási irányával párhuzamos (a haladási irány felé pozitív), az x tengely pedig arra merőleges (haladási iránytól jobbra pozitív), 
+és a másik hajó relatív haladási irányát fokban megadva 
 (ez egy 0-359 közötti szám: 0 ha párhuzamosan azonos irányba; 90 ha merőlegesen jobbról balra; 180 ha párhuzamosan de ellentétes irányba; 270, ha merőlegesen balról jobbra halad). 
 Ebből kiszámolja a két hajó útvonalának mettszéspontját. 
 
