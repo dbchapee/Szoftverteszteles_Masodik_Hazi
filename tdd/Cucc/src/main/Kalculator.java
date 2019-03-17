@@ -46,15 +46,25 @@ public class Kalculator {
 	//Ferenczi Kristóf /ELNXML
 	public boolean Crashing(Hajo ourship, Hajo othership)
 	{
-		Double T =5.0;
+		
+		double vx = othership.getSpeed().getSebesseg() * Math.cos((double) 90 - ourship.getIrany());
+		double vy = othership.getSpeed().getSebesseg() * Math.sin((double) 90 - ourship.getIrany());
+		double dx = ourship.getPozicio().getX();
+		double dy = ourship.getPozicio().getY();
+		double t = -(dx / vx);
+		int holKereszteziY = (int) (dy + vy * t);
+		
+		double T = holKereszteziY / ourship.getSpeed().getSebesseg();
+		
+		
 		Hossz ourhossz = ourship.getLength();
 		Hossz otherhossz = othership.getLength();
 		Double ourdt = (3.5 * ourhossz.getHossz())/ ourship.getSpeed().getSebesseg();
 		Double otherdt = (3.5 * otherhossz.getHossz())/ othership.getSpeed().getSebesseg();
 		
 		HashMap<String,Double> ourzone = new HashMap<String, Double> ();
-		ourzone.put("start",T- ourdt);
-		ourzone.put("end",T + ourdt);
+		ourzone.put("start",t- ourdt);
+		ourzone.put("end",t + ourdt);
 		
 		
 		HashMap<String,Double> otherzone = new HashMap<String, Double> ();
@@ -67,6 +77,8 @@ public class Kalculator {
 			
 		}else if (ourzone.get("start")<otherzone.get("end") && otherzone.get("end")< ourzone.get("end") )
 		{return true;}
+		
+		else
 		return false;
 	}
 	public Ido whenArrive() throws InvalidUnitException
