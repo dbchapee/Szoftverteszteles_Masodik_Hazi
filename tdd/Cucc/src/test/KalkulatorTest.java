@@ -59,5 +59,13 @@ class KalkulatorTest {
 		
 		assertEquals(1, k.are_we_gonnaCrashTo(ourship, theirship));
 	}
+	
+	@Test
+	//gulyas_g
+	void testing_for_when_we_have_to_slow_down() throws Exception{
+		
+		
+		//assertEquals(1, k.are_we_gonnaCrashTo(ourship, theirship));
+	}
 
 }

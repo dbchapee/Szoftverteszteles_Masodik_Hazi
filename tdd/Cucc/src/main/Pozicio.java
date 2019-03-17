@@ -5,7 +5,7 @@ public class Pozicio {
 	private int x;
 	//ahol y ???
 	private int y;
-	//elveileg ez az eltérés az y tengelytol fogkban megadva (ami 0-366 for)
+	//elveileg ez az eltérés az y tengelytol fogkban megadva (ami 0-360 fok)
 	private int irany;
 	
 	
@@ -18,11 +18,18 @@ public class Pozicio {
 		this.irany = irany;
 	}
 
-	public Pozicio(int x, int y, int irany) {
+	public Pozicio(int x, int y, int irany) throws InvalidUnitException {
 		super();
 		this.x = x;
 		this.y = y;
-		this.irany = irany;
+		if(irany > 360 || irany < 0) {
+			this.irany = -1;
+			throw new InvalidUnitException();
+		}
+		else{
+			this.irany = irany;
+		}
+		
 	}
 
 

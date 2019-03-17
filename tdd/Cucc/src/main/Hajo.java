@@ -15,7 +15,7 @@ public class Hajo {
 		this.pozicio = pozicio;
 	}
 
-	public void getIrany() {
+	public int getIrany() {
 		return pozicio.getIrany();
 	}
 	
