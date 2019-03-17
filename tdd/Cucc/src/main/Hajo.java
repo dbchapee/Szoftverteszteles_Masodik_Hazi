@@ -5,6 +5,8 @@ public class Hajo {
 	private Sebesseg speed;
 	private Hossz length;
 	private Pozicio pozicio;
+	private Double Irány;
+	
 	
 	
 	public Pozicio getPozicio() {
@@ -44,15 +46,31 @@ public class Hajo {
 	}
 
 
-	
 	public Hajo(Tomeg w, Hossz length, Sebesseg s, Pozicio p) {
 		this.weight = w;
 		this.length = length;
 		this.speed = s;
 		this.pozicio = p;
 	}
+	
+	
+	public Hajo(Tomeg w, Hossz length, Sebesseg s, Pozicio p,Double irany) {
+		this.weight = w;
+		this.length = length;
+		this.speed = s;
+		this.pozicio = p;
+		this.Irány=irany;
+	}
 
 	public boolean gonnaCrashTo(Hajo otherShip, int irany, Pozicio pos) {
 		return false;
+	}
+
+	public Double getIrány() {
+		return Irány;
+	}
+
+	public void setIrány(Double irány) {
+		Irány = irány;
 	}
 }

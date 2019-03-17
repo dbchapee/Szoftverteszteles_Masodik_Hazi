@@ -44,7 +44,7 @@ public class Kalculator {
 	
 
 	//Ferenczi Kristóf /ELNXML
-	public boolean Crashing(Hajo ourship, Hajo othership)
+	public static boolean Crashing(Hajo ourship, Hajo othership)
 	{
 		
 		double vx = othership.getSpeed().getSebesseg() * Math.cos((double) 90 - ourship.getIrany());
@@ -98,12 +98,17 @@ public class Kalculator {
     		- Ha mi vagyunk nehezebbek, õ mehet, mi lassítunk
 	 * */
 	
-	public int ki_kell_e_terni (Hajo ourship, Hajo othership) {
-		boolean result = Crashing(ourship, othership);
+	public int ki_kell_e_terni (Hajo ourship, Hajo theirship) {
+		boolean result = Crashing(ourship, theirship);
 		if ( result == true ) {
+			if((theirship.getPozicio().getIrany() > 270 && theirship.getPozicio().getIrany()<360)	||
+				(theirship.getPozicio().getIrany() > 0 && theirship.getPozicio().getIrany()<90))
+					return 1;
+			if(theirship.getPozicio().getIrany() > 90 && theirship.getPozicio().getIrany()<270) {
+				return 3;
+			}
 			
-			
-			return 1;
+
 		}
 		return 0;
 		
