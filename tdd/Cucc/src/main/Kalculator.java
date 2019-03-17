@@ -82,4 +82,32 @@ public class Kalculator {
 		return false;
 	}
 	
+	
+	
+	
+	/*
+	 * - Ha a másik hajó iránya 270-360° vagy 0-90° között van, akkor
+	 * 		1
+    		- Ha jobbra van tõlünk (dx > 0), õ mehet, mi lassítunk
+    		2
+    		- Ha balra van tõlünk (dx < 0), mi mehetünk, de figyeljünk rá
+  		- Ha 90-270° az iránya, akkor
+  			3
+    		- Ha õ a nehezebb, akkor mi mehetünk, de figyeljünk
+    		4
+    		- Ha mi vagyunk nehezebbek, õ mehet, mi lassítunk
+	 * */
+	
+	public int ki_kell_e_terni (Hajo ourship, Hajo othership) {
+		boolean result = Crashing(ourship, othership);
+		if ( result == true ) {
+			
+			
+			return 1;
+		}
+		return 0;
+		
+		
+	}
+	
 }

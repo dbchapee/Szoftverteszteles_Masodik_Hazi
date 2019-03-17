@@ -86,5 +86,21 @@ class KalkulatorTest {
 		boolean ker = k.keresztezikEgymast(new Hajo(t, h, s, p), new Hajo(t2, h2, s2, p2));
 		assertTrue(ker);
 	}
+	
+	
+	@Test
+	//1
+	void test_ki_kell_e_terni() throws Exception {
+		Tomeg t = new Tomeg(2000, "kg");
+		Tomeg t2 = new Tomeg(2000, "kg");
+		Hossz h = new Hossz(500, "m");
+		Hossz h2 = new Hossz(500, "m");
+		Sebesseg s = new Sebesseg(50.0, "km/h");
+		Sebesseg s2 = new Sebesseg(50.0, "km/h");
+		Pozicio p = new Pozicio(2, 4);
+		Pozicio p2 = new Pozicio(2, 8);
+		int res = k.ki_kell_e_terni(new Hajo(t, h, s, p), new Hajo(t2, h2, s2, p2));
+		assertEquals(1, res);
+	}
 
 }
