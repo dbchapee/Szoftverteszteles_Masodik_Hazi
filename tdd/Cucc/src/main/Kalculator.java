@@ -81,9 +81,5 @@ public class Kalculator {
 		else
 		return false;
 	}
-	public Ido whenArrive() throws InvalidUnitException
-	{
-		
-		return new Ido(12.5,"s");
-	}
+	
 }
