@@ -6,13 +6,19 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 
 import main.Hossz;
+import main.Kalculator;
+import main.Pozicio;
 import main.Hajo;
 import main.Sebesseg;
 import main.Tomeg;
 
 class KalkulatorTest {
 	
-	private Kalculator k;
+	public KalkulatorTest() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	private Kalculator k = new Kalculator();
 
 	@BeforeClass
 	public static void seupBeforeClass() throws Exception {
@@ -32,7 +38,16 @@ class KalkulatorTest {
 		Pozicio p = new Pozicio();
 		int angle = 270;
 		assertEquals("Lassíts!", k.gonnaCrashTo(otherShip, p, angle));
-		;
+	}
+	
+	
+	@Test
+	void testing_when_we_should_slow_down() throws Exception{
+		//todo make the class Hajo konstruktor with pozicio
+		Hajo ourship = new Hajo(2000 kg, 1000 m, 50 km/h);
+		Hajo theirship = new Hajo(3000 kg, 1500 m, 50 km/h);
+		
+		assertEquals("Lassíts!", k.are_we_gonnaCrashTo(ourship, theirship));
 	}
 
 }
