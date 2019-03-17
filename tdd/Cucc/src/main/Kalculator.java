@@ -3,7 +3,7 @@ package main;
 public class Kalculator {
 
 	//gulyas_g
-	//sajnos továbbra sem értem, hogy szimplán x, y-bol hogy van meg egy "relativ pozicio", de azért számolok valamit :D
+	//sajnos tovï¿½bbra sem ï¿½rtem, hogy szimplï¿½n x, y-bol hogy van meg egy "relativ pozicio", de azï¿½rt szï¿½molok valamit :D
 	//return 1: nem kell csinalni semmit
 	//return 2: lassitani kell
 	//return 3: elsobbsegunk van
@@ -13,6 +13,17 @@ public class Kalculator {
 			}
 		return 0;
 	}
-	
+
+	public boolean keresztezikEgymast(Hajo hajo1, Hajo hajo2) {
+		if (((hajo2.getPozicio().getX() > 0 && hajo2.getIrany() <= 180) &&
+			(hajo1.getPozicio().getX() > 0 && hajo1.getIrany() <= 180))
+			|| 
+			((hajo2.getPozicio().getX() < 0 && hajo2.getIrany() > 180) &&
+			(hajo1.getPozicio().getX() < 0 && hajo1.getIrany() > 180))
+			) {
+			return false;
+		}
+		else return true;
+	}
 
 }

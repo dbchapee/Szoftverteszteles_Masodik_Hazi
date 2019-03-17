@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 
 import main.Hossz;
+import main.InvalidUnitException;
 import main.Kalculator;
 import main.Pozicio;
 import main.Hajo;
@@ -25,36 +26,40 @@ class KalkulatorTest {
 		Tomeg w = new Tomeg(10000.0, "t");
 		Hossz length = new Hossz(120.0, "m");
 		Sebesseg s = new Sebesseg(5.0, "m/s");
-		Hajo ship = new Hajo(w, length, s);
-		Pozicio p = new Pozicio();
+		Pozicio p = new Pozicio(0, 0);
+		Hajo ship = new Hajo(w, length, s, p);
 	}
 	
-
-	void test() {
-		Tomeg w = new Tomeg(8000.0, "t");
-		Hossz length = new Hossz(100.0, "m");
-		Sebesseg s = new Sebesseg(5.0, "m/s");
-		Hajo otherShip = new Hajo(w, length, s);
-		Pozicio p = new Pozicio();
-		int angle = 270;
-		assertEquals("Lassíts!", k.gonnaCrashTo(otherShip, p, angle));
+	@Test
+	void test() throws Exception {
+		Tomeg ourship_t = new Tomeg(2000, "kg");
+		Hossz ourship_h = new Hossz(500, "m");
+		Sebesseg ourship_s = new Sebesseg(50.0, "km/h");
+		Pozicio ourship_p = new Pozicio(0, 0);
+		Hajo ourship = new Hajo(ourship_t, ourship_h, ourship_s, ourship_p);
+		
+		Tomeg theirship_t = new Tomeg(3000, "kg");
+		Hossz theirship_h = new Hossz(750, "m");
+		Sebesseg theirship_s = new Sebesseg(60.0, "km/h");
+		Pozicio theirship_p = new Pozicio(0, 0);
+		Hajo theirship = new Hajo(theirship_t, theirship_h, theirship_s, theirship_p);
+		assertEquals(false, k.are_we_gonnaCrashTo(ourship, theirship));
 	}
 	
 	
 	@Test
 	//gulyas_g
 	void testing_for_when_we_dont_have_to_do_anything() throws Exception{
-		//todo make the class Hajo konstruktor with pozicio
 		Tomeg ourship_t = new Tomeg(2000, "kg");
 		Hossz ourship_h = new Hossz(500, "m");
 		Sebesseg ourship_s = new Sebesseg(50.0, "km/h");
-		Pozicio ourship_p = new Pozicio(0, 0, 0);
+		Pozicio ourship_p = new Pozicio(0, 0);
 		Hajo ourship = new Hajo(ourship_t, ourship_h, ourship_s, ourship_p);
 		
 		Tomeg theirship_t = new Tomeg(3000, "kg");
 		Hossz theirship_h = new Hossz(750, "m");
 		Sebesseg theirship_s = new Sebesseg(60.0, "km/h");
-		Pozicio theirship_p = new Pozicio(0, 0, 0);
+		Pozicio theirship_p = new Pozicio(0, 0);
 		Hajo theirship = new Hajo(theirship_t, theirship_h, theirship_s, theirship_p);
 		
 		assertEquals(1, k.are_we_gonnaCrashTo(ourship, theirship));
@@ -66,6 +71,20 @@ class KalkulatorTest {
 		
 		
 		//assertEquals(1, k.are_we_gonnaCrashTo(ourship, theirship));
+	}
+	
+	@Test
+	void testKeresztezikEgymast() throws Exception {
+		Tomeg t = new Tomeg(2000, "kg");
+		Tomeg t2 = new Tomeg(2000, "kg");
+		Hossz h = new Hossz(500, "m");
+		Hossz h2 = new Hossz(500, "m");
+		Sebesseg s = new Sebesseg(50.0, "km/h");
+		Sebesseg s2 = new Sebesseg(50.0, "km/h");
+		Pozicio p = new Pozicio(2, 4);
+		Pozicio p2 = new Pozicio(2, 8);
+		boolean ker = k.keresztezikEgymast(new Hajo(t, h, s, p), new Hajo(t2, h2, s2, p2));
+		assertTrue(ker);
 	}
 
 }
