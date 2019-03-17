@@ -7,6 +7,18 @@ public class Hajo {
 	private Pozicio pozicio;
 	
 	
+	public Pozicio getPozicio() {
+		return pozicio;
+	}
+
+	public void setPozicio(Pozicio pozicio) {
+		this.pozicio = pozicio;
+	}
+
+	public void getIrany() {
+		return pozicio.getIrany();
+	}
+	
 	public Tomeg getWeight() {
 		return weight;
 	}

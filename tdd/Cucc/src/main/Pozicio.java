@@ -1,30 +1,44 @@
 package main;
 
 public class Pozicio {
-	
+	//ahol x ???
 	private int x;
+	//ahol y ???
 	private int y;
+	//elveileg ez az eltérés az y tengelytol fogkban megadva (ami 0-366 for)
+	private int irany;
+	
 	
 
-	public Pozicio(Hossz x, Hossz y) {
+	public int getIrany() {
+		return irany;
+	}
+
+	public void setIrany(int irany) {
+		this.irany = irany;
+	}
+
+	public Pozicio(int x, int y, int irany) {
 		super();
 		this.x = x;
 		this.y = y;
+		this.irany = irany;
 	}
 
-	public Hossz getX() {
+
+	public int getX() {
 		return x;
 	}
 
-	public void setX(Hossz x) {
+	public void setX(int x) {
 		this.x = x;
 	}
 
-	public Hossz getY() {
+	public int getY() {
 		return y;
 	}
 
-	public void setY(Hossz y) {
+	public void setY(int y) {
 		this.y = y;
 	}
 }
