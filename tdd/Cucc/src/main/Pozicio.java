@@ -5,29 +5,22 @@ public class Pozicio {
 	private int x;
 	//ahol y ???
 	private int y;
-	//elveileg ez az eltérés az y tengelytol fogkban megadva (ami 0-360 fok)
-	private int irany;
-	
-	
+	//elveileg ez az eltï¿½rï¿½s az y tengelytol fogkban megadva (ami 0-360 fok)
 
 	public int getIrany() {
-		return irany;
-	}
-
-	public void setIrany(int irany) {
-		this.irany = irany;
+	    int angle = (int) Math.toDegrees(Math.atan2(0 - y, 0 - x));
+	    if(angle < 0){
+	        angle += 360;
+	    }
+	    return angle;
 	}
 
 	public Pozicio(int x, int y, int irany) throws InvalidUnitException {
 		super();
 		this.x = x;
 		this.y = y;
-		if(irany > 360 || irany < 0) {
-			this.irany = -1;
+		if(getIrany() > 360 || getIrany() < 0) {
 			throw new InvalidUnitException();
-		}
-		else{
-			this.irany = irany;
 		}
 		
 	}
